@@ -1,0 +1,36 @@
+mengolah data dari masukkan user (tugas aplikasi) menggunakan form
+
+uas menggunakan kotak dialog
+menggunakan javascript
+membuat fungsi alert sendiri, 
+
+
+sidebar header menu footer kalo konsinten sama
+membuat table
+
+script html harus sesuai dengan standar html5
+no error at validator
+
+js diletakkan didalam file eksternal
+script js diletakkan paling Bawah sebelum penutup tag body karena membaca form dari atas sampai tag js diisi
+
+validasi error atau fungsi didbungkus menggunakan function
+
+intinya mah indentasi rapi
+
+intinya mah perbaris kode dikasi komentar dengan jelas
+
+
+
+
+
+sidebar nya hyperlink
+
+form nya ada perubahan di bagian metode pembayaran tambahkan bank atau transfer
+
+tambahkan input date (tanggal peminjaman)
+
+sidebar kasih scroll
+
+eval ada error
+about us error

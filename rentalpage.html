@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Academy - Rental Kamera</title>
+    <link rel="stylesheet" href="halaman 2.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="headermenu">
+      <div class="container">
+        <div class="logo">LensaKita</div>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Homepage</a>
+          <a href="rentalpage.html" class="nav-link active">Rental Kamera</a>
+          <a href="evalpage.html" class="nav-link">Evaluation</a>
+          <a href="aboutus.html" class="nav-link">About Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="content-form" id="content-form">
+          <form id="rentalForm">
+            <h4 class="headForm">FORM PENYEWAAN KAMERA DIGITAL</h4>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Nama Penyewa<span class="required-color">*</span></label
+              >
+              <input
+                class="input-box"
+                type="text"
+                placeholder="Masukkan Nama Lengkap"
+                id="name-input"
+              />
+              <p id="name-error" class="hide required-color error-message"></p>
+              <p id="empty-name" class="hide required-color error-message"></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Email Penyewa<span class="required-color">*</span></label
+              >
+              <input
+                class="input-box"
+                type="text"
+                placeholder="Masukkan Email"
+                id="email-input"
+              />
+              <p id="email-error" class="hide required-color error-message"></p>
+              <p id="empty-email" class="hide required-color error-message"></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Nomor Telepon<span class="required-color">*</span></label
+              >
+              <input
+                class="input-box"
+                type="text"
+                placeholder="Masukkan Nomor Telepon/WA"
+                id="phone-input"
+              />
+              <p id="phone-error" class="hide required-color error-message"></p>
+              <p id="empty-phone" class="hide required-color error-message"></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Metode Pembayaran<span class="required-color">*</span></label
+              >
+              <div class="radio-group">
+                <input type="radio" id="cash" name="pembayaran" value="Cash" />
+                <label for="cash">Cash</label>
+                <input
+                  type="radio"
+                  id="debit"
+                  name="pembayaran"
+                  value="Debit"
+                />
+                <label for="debit">Debit</label>
+              </div>
+              <p id="payment-error" class="hide required-color error-message">
+                Metode pembayaran harus dipilih.
+              </p>
+            </div>
+
+            <div class="input-section">
+              <label for="camera-select" class="label-section"
+                >Pilihan Kamera<span class="required-color">*</span></label
+              >
+              <select id="camera-select" class="selector">
+                <option value="" disabled selected hidden>
+                  Pilih Kamera yang Tersedia
+                </option>
+                <option value="SonyA7IV">Sony Alpha A7 IV (Mirrorless)</option>
+                <option value="CanonEOSR6">Canon EOS R6 (Mirrorless)</option>
+                <option value="LumixGH6">Panasonic Lumix GH6 (Video)</option>
+                <option value="FujifilmXT4">Fujifilm X-T4 (Mirrorless)</option>
+              </select>
+              <p
+                id="empty-camera"
+                class="hide required-color error-message"
+              ></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Keperluan Peminjaman<span class="required-color"
+                  >*</span
+                ></label
+              >
+              <textarea
+                class="input-box"
+                placeholder="Misal: Dokumentasi Wedding, Tugas Kuliah, dll"
+                id="purpose-input"
+                rows="4"
+                style="resize: vertical"
+              ></textarea>
+              <p
+                id="empty-purpose"
+                class="hide required-color error-message"
+              ></p>
+            </div>
+
+            <button id="submit-button" type="submit">Sewa Sekarang</button>
+          </form>
+        </div>
+
+        <div class="content-form hide" id="result-container-card">
+          <div id="result-container"></div>
+        </div>
+      </div>
+
+      <div class="sidebar-fixed">
+        <ul class="sidebar-links">
+          <li><a href="#penjelasan1">DSLR vs Mirrorless</a></li>
+          <li><a href="#penjelasan2">Segitiga Eksposur</a></li>
+          <li><a href="#penjelasan3">Tips Pilih Lensa</a></li>
+          <li><a href="#penjelasan4">Rule of Thirds</a></li>
+          <li><a href="#penjelasan5">Pencahayaan</a></li>
+          <li><a href="#penjelasan6">Depth of Field</a></li>
+          <li><a href="#penjelasan7">Frame Rate</a></li>
+          <li><a href="#penjelasan8">Camera Movement</a></li>
+          <li><a href="#penjelasan9">Video Exposure</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Kelompok 5 DPW.</p>
+      </div>
+    </footer>
+    <script src="halaman 2.js"></script>
+  </body>
+</html>

@@ -20,13 +20,17 @@ body {
 
 /* Container - FIXED 1200px */
 .container {
+  width: 100%;
+  max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
 }
 
 .light-bg {
-  background-color: #629bf7;
+  background-color: #d6e4ec;
+  padding: 60px 20px; /* Jarak atas-bawah 60px, kiri-kanan 20px */
 }
+
 
 /* Header */
 .headermenu {
@@ -66,7 +70,6 @@ body {
   font-size: 16px;
 }
 
-.nav-link:hover,
 .nav-link.active {
   background: #e3f2fd;
   color: #4285f4;
@@ -74,14 +77,17 @@ body {
 
 /* Sidebar Section */
 .sidebar-fixed {
-  position: fixed; /* Kunci utama: tidak bergerak saat scroll */
+  position: fixed;
   width: 25%;
+  height: 100%;
   right: 0px;
-  top: 0px;
+  top: 20px;
   background: #ffffff;
-  padding: 90px;
-  /* z-index: 999; Agar selalu berada di atas konten lain */
+  padding: 90px; /* Atas 80px (agar tidak tertutup header), kanan/kiri 25px, bawah 30px */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
 
 .sidebar-links {
   list-style: circle;
@@ -100,73 +106,7 @@ body {
   color: #555;
   transition: all 0.3s ease;
   display: block;
-}
-
-.sidebar-links a:hover {
-  color: #007bff; /* Warna berubah saat kursor di atasnya */
-  transform: translateX(5px); /* Sedikit bergeser ke kanan saat di-hover */
-}
-
-/* Hero Section */
-.judul {
-  padding: 120px 0 100px;
-  background: #e8f4fd;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-}
-
-.judul-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.judul .container {
-  display: flex;
-  gap: 80px;
-  align-items: center;
-  height: 100vh;
-}
-
-.judul-box {
-  width: 50%;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.judul-box h1 {
-  font-size: 48px;
-  margin-bottom: 25px;
-  color: #222;
-  line-height: 1.2;
-}
-
-.judul-box p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  color: #a09b9b;
-}
-
-.button {
-  display: inline-block;
-  background: #4285f4;
-  color: white;
-  padding: 18px 40px;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
-  transition: all 0.3s;
-}
-
-.button:hover {
-  /* transform: translateY(-3px); */
-  box-shadow: 0 12px 30px rgba(66, 133, 244, 0.4);
+  font-size: 1rem;
 }
 
 /* Sections */
@@ -215,11 +155,6 @@ body {
 
 .explain h2 {
   text-align: left;
-}
-
-.card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .icon {

@@ -20,13 +20,12 @@ body {
 
 /* Container - FIXED 1200px */
 .container {
+  width: 100%;
+  max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
 }
 
-.light-bg {
-  background-color: #629bf7;
-}
 
 /* Header */
 .headermenu {
@@ -66,21 +65,93 @@ body {
   font-size: 16px;
 }
 
-.nav-link:hover,
 .nav-link.active {
   background: #e3f2fd;
   color: #4285f4;
 }
 
+/* section judul */
+.judul {
+  background: #e8f4fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px); /* Menghitung tinggi layar dikurangi tinggi header fixed */
+  padding: 40px 0;
+}
+
+.judul .container {
+  display: flex;
+  gap: 40px;               /* Jarak seimbang antara kotak teks dan gambar */
+  align-items: center;
+  justify-content: center; /* KUNCI UTAMA: Membuat teks & gambar berada persis di tengah */
+  height: auto;            /* Menghapus 100vh lama yang merusak layout */
+}
+
+.judul-box {
+  width: 48%;              /* Membagi porsi ruang secara adil */
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.judul-box h1 {
+  font-size: 34px;         /* Diperkecil sedikit agar proporsional di layar laptop */
+  margin-bottom: 25px;
+  color: #222;
+  line-height: 1.3;
+}
+
+.judul-box p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #a09b9b;
+}
+
+/* Pembungkus Gambar */
+.judul-image {
+  width: 48%;              /* Seimbang dengan lebar judul-box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.judul-image img {
+  width: 100%;
+  max-width: 450px;        
+  height: auto;            
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Tombol */
+.button {
+  display: inline-block;
+  background: #4285f4;
+  color: white;
+  padding: 14px 30px;      /* Diperkecil sedikit ukurannya agar lebih estetik */
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s;
+  margin-right: 10px;      /* Memberi jarak antar tombol agar tidak menempel */
+  margin-bottom: 10px;     /* Jarak aman jika tombol terpaksa turun di layar kecil */
+}
+
 /* Sidebar Section */
 .sidebar-fixed {
-  position: fixed; /* Kunci utama: tidak bergerak saat scroll */
+  position: fixed;
   width: 25%;
+  height: 100%;
   right: 0px;
-  top: 0px;
+  top: 20px;
   background: #ffffff;
-  padding: 90px;
-  /* z-index: 999; Agar selalu berada di atas konten lain */
+  padding: 90px; /* Atas 80px (agar tidak tertutup header), kanan/kiri 25px, bawah 30px */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .sidebar-links {
@@ -100,84 +171,17 @@ body {
   color: #555;
   transition: all 0.3s ease;
   display: block;
+  font-size: 1rem;
 }
 
-.sidebar-links a:hover {
-  color: #007bff; /* Warna berubah saat kursor di atasnya */
-  transform: translateX(5px); /* Sedikit bergeser ke kanan saat di-hover */
-}
-S
-
-/* Hero Section */
-.judul {
-  padding: 120px 0 100px;
-  background: #e8f4fd;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-}
-
-.judul-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.judul .container {
-  display: flex;
-  gap: 80px;
-  align-items: center;
-  height: 100vh;
-}
-
-.judul-box {
-  width: 50%;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.judul-box h1 {
-  font-size: 48px;
-  margin-bottom: 25px;
-  color: #222;
-  line-height: 1.2;
-}
-
-.judul-box p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  color: #a09b9b;
-}
-
-.button {
-  display: inline-block;
-  background: #4285f4;
-  color: white;
-  padding: 18px 40px;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
-  transition: all 0.3s;
-}
-
-.button:hover {
-  /* transform: translateY(-3px); */
-  box-shadow: 0 12px 30px rgba(66, 133, 244, 0.4);
-}
-
-/* Sections */
+/* Content Sections  */
 .content {
   padding: 100px 0;
 }
 
 .content h2 {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 60px;
   color: #222;
 }
@@ -189,6 +193,21 @@ S
   justify-content: center;
 }
 
+.explain {
+  text-align: justify;
+}
+
+.explain p {
+    text-align: justify;
+}
+
+.explain h2 {
+  text-align: left;
+}
+.explain h3 {
+  font-size: larger;
+}
+
 .card {
   flex: 1;
   max-width: 350px;
@@ -197,9 +216,7 @@ S
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition:
-    all 0,
-    3s;
+  transition: all 0,3s;
   border: 1px solid #eee;
 }
 
@@ -209,19 +226,42 @@ S
   display: block;
 }
 
-.explain {
-  font-size: larger;
-  text-align: justify;
+.harga-sewa {
+    padding: 40px 20px;
 }
 
-.explain h2 {
-  text-align: left;
+.harga-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+.harga-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+} 
+
+.harga-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #222;
 }
+
+.harga-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.harga-card ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
 
 .icon {
   font-size: 60px;
@@ -234,11 +274,6 @@ S
   color: #222;
 }
 
-.card p {
-  color: #666;
-  font-size: 16px;
-  line-height: 1.6;
-}
 
 /* Footer */
 .footer {
@@ -255,190 +290,3 @@ S
   color: #ccc;
 }
 
-/* Section Content Evaluasi */
-/* Untuk mengatur container eval */
-div.content-eval {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-  padding: 50px;
-}
-/* Untuk mengatur h1 */
-div.content-eval h1 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 50px;
-  margin-bottom: 50px;
-}
-/* Untuk mengatur table */
-div.content-eval table {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid orange;
-  text-align: center;
-  margin-bottom: 20px;
-}
-/* Untuk mengatur th td table */
-div.content-eval th,
-td {
-  border: 5px solid #000000;
-  padding: 10px;
-}
-/* Untuk mengatur th table */
-div.content-eval th {
-  background-color: #b4b4b3;
-}
-
-/* rental */
-.content-form {
-  background-color: #ffffff; /* Kotak Form Putih */
-  padding: 40px 50px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Efek bayangan kotak */
-  margin: 0 auto 30px auto;
-  width: 80%;
-}
-
-.headForm {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #000;
-}
-
-.input-section {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column; /* Label di atas, Input di bawah */
-}
-
-.label-section {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.required-color {
-  color: red; /* Bintang merah */
-}
-
-.input-box,
-.selector {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 15px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  outline: none;
-}
-
-.input-box:focus,
-.selector:focus {
-  border-color: #007bff;
-}
-
-.radio-group {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-top: 5px;
-}
-
-.radio-group label {
-  font-size: 15px;
-  color: #333;
-}
-
-#submit-button {
-  width: 100%;
-  padding: 15px;
-  background-color: #ffffff;
-  color: #000;
-  border: 1px solid #999;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
-}
-
-#submit-button:hover {
-  background-color: #f0f0f0;
-}
-
-.error-message {
-  font-size: 13px;
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-
-.hide {
-  display: none;
-}
-
-/* Section Content About Us */
-    /* Layout container content-aboutus */
-    div.content-aboutus {
-        /* width: 200%;
-        max-width: 700px;
-        background-color: white;
-        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-        margin: 0 50px auto;
-        background-color: #ffffff; /* Kotak Form Putih */
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Efek bayangan kotak */
-        margin: 0 50px 0;
-        width: 200%;
-        padding: 32px 24px;
-        max-width: 870px;
-    }
-    /* Untuk mengatur h1 pada content-aboutus */
-    div.content-aboutus h1 {
-        font-weight: bold;
-        font-size: 50px;
-        margin-bottom: 50px;
-    }
-    /* Untuk mengatur h2 pada content-aboutus */
-    div.content-aboutus h2 {
-        margin-top: 50px;
-    }
-
-
-    /* Identitas Mahasiswa */
-        /* Untuk mengatur ul pada content-aboutus */
-        div.content-aboutus ul {
-            list-style-type: none;
-        }
-        /* Untuk mengatur h1 pada content-aboutus */
-        div.content-aboutus li {
-            background: #e4e4e4;
-            margin: 15px;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-        }
-
-
-    /* Pembagian Pengerjaan */
-        /* Untuk mengatur table pada content-aboutus */
-        div.content-aboutus table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-        }
-        /* Untuk mengatur th, td pada content-aboutus */
-        div.content-aboutus th, td {
-            border: 5px solid #76ABAE;
-            padding: 10px;
-        }
-        /* Untuk mengatur th pada content-aboutus */
-        div.content-aboutus th {
-            background-color: #B4B4B3;
-            text-align: center;
-        }

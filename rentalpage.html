@@ -73,6 +73,48 @@
 
             <div class="input-section">
               <label class="label-section"
+                >Tanggal Peminjaman<span class="required-color">*</span></label
+              >
+              <input
+                class="input-box"
+                type="datetime-local"
+                placeholder="Masukkan Tanggal Peminjaman"
+                id="date-peminjaman"
+              />
+              <p
+                id="date-peminjaman-error"
+                class="hide required-color error-message"
+              ></p>
+              <p
+                id="empty-date-peminjaman"
+                class="hide required-color error-message"
+              ></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
+                >Tanggal Pengembalian<span class="required-color"
+                  >*</span
+                ></label
+              >
+              <input
+                class="input-box"
+                type="datetime-local"
+                placeholder="Masukkan Tanggal Pengembalian"
+                id="date-pengembalian"
+              />
+              <p
+                id="date-pengembalian-error"
+                class="hide required-color error-message"
+              ></p>
+              <p
+                id="empty-date-pengembalian"
+                class="hide required-color error-message"
+              ></p>
+            </div>
+
+            <div class="input-section">
+              <label class="label-section"
                 >Metode Pembayaran<span class="required-color">*</span></label
               >
               <div class="radio-group">
@@ -85,6 +127,8 @@
                   value="Debit"
                 />
                 <label for="debit">Debit</label>
+                <input type="radio" id="bank" name="pembayaran" value="bank" />
+                <label for="bank">Bank</label>
               </div>
               <p id="payment-error" class="hide required-color error-message">
                 Metode pembayaran harus dipilih.
@@ -100,9 +144,13 @@
                   Pilih Kamera yang Tersedia
                 </option>
                 <option value="Canon EOS 6D">Canon EOS 6D (DSLR)</option>
-                <option value="Canon EOS M50">Canon EOS M50 (Mirrorless)</option>
+                <option value="Canon EOS M50">
+                  Canon EOS M50 (Mirrorless)
+                </option>
                 <option value="Canon 700D">Canon 700D (DSLR)</option>
-                <option value="Canon EOS R100">Canon EOS R100 (Mirrorless)</option>
+                <option value="Canon EOS R100">
+                  Canon EOS R100 (Mirrorless)
+                </option>
                 <option value="Canon EOS 60D">Canon EOS 60D (DSLR)</option>
                 <option value="Canon EOS 600D">Canon EOS 600D (DSLR)</option>
               </select>
@@ -142,16 +190,16 @@
 
       <div class="sidebar-fixed">
         <ul class="sidebar-links">
-          <li><a href="#penjelasan1">DSLR vs Mirrorless</a></li>
-          <li><a href="#penjelasan2">Segitiga Eksposur</a></li>
-          <li><a href="#penjelasan3">Tips Pilih Lensa</a></li>
-          <li><a href="#penjelasan4">Rule of Thirds</a></li>
-          <li><a href="#penjelasan5">Pencahayaan</a></li>
-          <li><a href="#penjelasan6">Depth of Field</a></li>
-          <li><a href="#penjelasan7">Frame Rate</a></li>
-          <li><a href="#penjelasan8">Camera Movement</a></li>
-          <li><a href="#penjelasan9">Video Exposure</a></li>
-          <li><a href="#sewa">Harga sewa</a></li>
+          <li><a href="index.html#penjelasan1">DSLR vs Mirrorless</a></li>
+          <li><a href="index.html#penjelasan2">Segitiga Eksposur</a></li>
+          <li><a href="index.html#penjelasan3">Tips Pilih Lensa</a></li>
+          <li><a href="index.html#penjelasan4">Rule of Thirds</a></li>
+          <li><a href="index.html#penjelasan5">Pencahayaan</a></li>
+          <li><a href="index.html#penjelasan6">Depth of Field</a></li>
+          <li><a href="index.html#penjelasan7">Frame Rate</a></li>
+          <li><a href="index.html#penjelasan8">Camera Movement</a></li>
+          <li><a href="index.html#penjelasan9">Video Exposure</a></li>
+          <li><a href="index.html#sewa">Harga sewa</a></li>
         </ul>
       </div>
     </div>

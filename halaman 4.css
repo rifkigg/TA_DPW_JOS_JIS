@@ -23,14 +23,13 @@ body {
   width: 100%;
   max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
   margin: 0 auto;
-  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
+  padding: 0 20px; /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
 }
 
 .light-bg {
   background-color: #d6e4ec;
   padding: 60px 20px; /* Jarak atas-bawah 60px, kiri-kanan 20px */
 }
-
 
 /* Header */
 .headermenu {
@@ -87,7 +86,6 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 
 .sidebar-links {
   list-style: circle;
@@ -190,60 +188,59 @@ body {
 }
 
 /* Section Content About Us */
-    /* Layout container content-aboutus */
-    div.content-aboutus {
-        background-color: #ffffff; /* Kotak Form Putih */
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Efek bayangan kotak */
-        margin: 0 50px 0;
-        width: 200%;
-        padding: 32px 24px;
-        max-width: 870px;
-    }
-    /* Untuk mengatur h1 pada content-aboutus */
-    div.content-aboutus h1 {
-        font-weight: bold;
-        font-size: 50px;
-        margin-bottom: 50px;
-    }
-    /* Untuk mengatur h2 pada content-aboutus */
-    div.content-aboutus h2 {
-        margin-top: 50px;
-    }
+/* Layout container content-aboutus */
+div.content-aboutus {
+  background-color: #ffffff; /* Kotak Form Putih */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Efek bayangan kotak */
+  margin: 0 50px 0;
+  width: 200%;
+  padding: 32px 24px;
+  max-width: 870px;
+}
+/* Untuk mengatur h1 pada content-aboutus */
+div.content-aboutus h1 {
+  font-weight: bold;
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+/* Untuk mengatur h2 pada content-aboutus */
+div.content-aboutus h2 {
+  margin-top: 50px;
+}
 
+/* Identitas Mahasiswa */
+/* Untuk mengatur ul pada content-aboutus */
+div.content-aboutus ul {
+  list-style-type: none;
+}
+/* Untuk mengatur h1 pada content-aboutus */
+div.content-aboutus .anggota {
+  background: #e4e4e4;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
 
-    /* Identitas Mahasiswa */
-        /* Untuk mengatur ul pada content-aboutus */
-        div.content-aboutus ul {
-            list-style-type: none;
-        }
-        /* Untuk mengatur h1 pada content-aboutus */
-        div.content-aboutus li {
-            background: #e4e4e4;
-            margin: 15px;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-        }
-
-
-    /* Pembagian Pengerjaan */
-        /* Untuk mengatur table pada content-aboutus */
-        div.content-aboutus table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-        }
-        /* Untuk mengatur th, td pada content-aboutus */
-        div.content-aboutus th, td {
-            border: 5px solid #76ABAE;
-            padding: 10px;
-        }
-        /* Untuk mengatur th pada content-aboutus */
-        div.content-aboutus th {
-            background-color: #B4B4B3;
-            text-align: center;
-        }
+/* Pembagian Pengerjaan */
+/* Untuk mengatur table pada content-aboutus */
+div.content-aboutus table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+/* Untuk mengatur th, td pada content-aboutus */
+div.content-aboutus th,
+td {
+  border: 5px solid #76abae;
+  padding: 10px;
+}
+/* Untuk mengatur th pada content-aboutus */
+div.content-aboutus th {
+  background-color: #b4b4b3;
+  text-align: center;
+}

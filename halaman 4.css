@@ -244,3 +244,7 @@ div.content-aboutus th {
   background-color: #b4b4b3;
   text-align: center;
 }
+
+ol {
+  margin: 20px;
+}

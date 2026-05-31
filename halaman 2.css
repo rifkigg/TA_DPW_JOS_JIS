@@ -1,331 +1,197 @@
-/* Reset Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ================= RESET DASAR ================= */
+* {                                 /* Selector universal (*) menargetkan semua elemen di HTML */
+  margin: 0;                        /* Menghapus jarak luar (margin) bawaan browser menjadi 0 */
+  padding: 0;                       /* Menghapus jarak dalam (padding) bawaan browser menjadi 0 */
+  box-sizing: border-box;           /* Memastikan padding & border masuk dalam hitungan lebar/tinggi elemen */
+}
+body {                              /* Selector body menargetkan seluruh badan halaman web */
+  font-family: "Poppins", sans-serif; /* Menggunakan font Poppins, atau font sans-serif bawaan jika gagal dimuat */
 }
 
-html {
-  scroll-behavior: smooth;
+.wrapper {                          /* Class pembungkus utama konten selain sidebar */
+  width: 75%;                       /* Lebar elemen dibatasi hanya 75% dari lebar layar */
+  margin-top: 70px;                 /* Memberi jarak dorongan ke bawah 70px agar tidak tertutup header */
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+/* ================= CONTAINER ================= */
+.container {                        /* Class wadah untuk menjaga konten tetap terpusat dan rapi */
+  width: 100%;                      /* Lebar mengambil 100% dari elemen induknya */
+  max-width: 1200px;                /* Mengunci lebar maksimal tidak lebih dari 1200px di layar besar */
+  margin: 0 auto;                   /* Margin atas-bawah 0, kanan-kiri auto (membuat elemen rata tengah) */
+  padding: 0 20px;                  /* Margin dalam atas-bawah 0, kanan-kiri 20px (agar tidak menempel di tepi layar HP) */
 }
 
-.wrapper {
-  width: 75%;
-  margin-top: 70px;
+/* ================= HEADER ================= */
+.headermenu {                       /* Class untuk area menu navigasi atas */
+  background: white;                /* Latar belakang berwarna putih */
+  position: fixed;                  /* Membuat header melayang dan diam di tempat saat halaman di-scroll */
+  width: 100%;                      /* Lebar header membentang 100% layar */
+  top: 0;                           /* Posisi menempel persis di ujung atas layar */
+  z-index: 100;                     /* Prioritas tumpukan tinggi (100) agar selalu berada di atas konten lain */
 }
 
-/* Container - FIXED 1200px */
-.container {
-  width: 100%;
-  max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
-  margin: 0 auto;
-  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
+.headermenu .container {            /* Menargetkan .container yang khusus ada di dalam .headermenu */
+  display: flex;                    /* Mengaktifkan sistem layout flexbox (menyusun elemen sejajar) */
+  justify-content: space-between;   /* Mendorong elemen sejauh mungkin (Logo ke kiri mentok, Nav ke kanan mentok) */
+  align-items: center;              /* Meratakan elemen secara vertikal tepat di tengah (center) */
+  padding: 20px 40px;               /* Jarak dalam atas-bawah 20px, kanan-kiri 40px */
+  height: 70px;                     /* Mengunci tinggi header di angka pasti 70px */
 }
 
-.light-bg {
-  background-color: #d6e4ec;
-  padding: 60px 20px; /* Jarak atas-bawah 60px, kiri-kanan 20px */
+.logo {                             /* Class untuk teks logo website */
+  font-size: 28px;                  /* Ukuran huruf logo 28px */
+  font-weight: 600;                 /* Ketebalan huruf semi-bold (600) */
+  color: #4285f4;                   /* Warna huruf biru khas Google */
 }
 
-
-/* Header */
-.headermenu {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
+.nav {                              /* Class pembungkus tautan navigasi */
+  display: flex;                    /* Menyusun tautan menu berjejer ke samping */
+  gap: 40px;                        /* Jarak sela antar tautan menu sebesar 40px */
 }
 
-.headermenu .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  height: 70px;
+.nav-link {                         /* Class untuk masing-masing teks tautan menu */
+  text-decoration: none;            /* Menghapus garis bawah bawaan pada link (tag <a>) */
+  color: #666;                      /* Warna teks abu-abu gelap */
+  font-weight: 500;                 /* Ketebalan teks medium (500) */
+  padding: 12px 20px;               /* Ruang klik (padding) atas-bawah 12px, kanan-kiri 20px */
+  border-radius: 25px;              /* Membulatkan sudut latar belakang menu menjadi oval (25px) */
+  font-size: 16px;                  /* Ukuran teks 16px */
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 600;
-  color: #4285f4;
+.nav-link.active {                  /* Menargetkan tautan menu yang sedang aktif dikunjungi */
+  background: #e3f2fd;              /* Warna latar biru sangat muda */
+  color: #4285f4;                   /* Warna teks biru terang agar kontras dengan latar */
 }
 
-.nav {
-  display: flex;
-  gap: 40px;
+/* ================= SIDEBAR SECTION ================= */
+.sidebar-fixed {                    /* Class untuk daftar menu di samping kanan */
+  position: fixed;                  /* Membuat sidebar melayang dan diam saat di-scroll */
+  width: 25%;                       /* Mengambil lebar 25% dari layar */
+  height: 100%;                     /* Tinggi penuh 100% mengikuti layar */
+  right: 0px;                       /* Menempel rapat di ujung kanan layar */
+  top: 20px;                        /* Berjarak 20px dari atap layar */
+  background: #ffffff;              /* Warna latar belakang putih */
+  padding: 90px;                    /* Jarak dalam 90px agar konten tidak tertutup header 70px */
+  overflow-y: auto;                 /* Memunculkan scroll vertikal jika menu terlalu panjang */
+  overflow-x: hidden;               /* Menyembunyikan scroll mendatar/horizontal */
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #666;
-  font-weight: 500;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 16px;
+.sidebar-links {                    /* Class untuk tag <ul> daftar sidebar */
+  list-style: circle;               /* Menggunakan bullet poin berbentuk lingkaran kosong */
+  padding: 0;                       /* Menghapus padding bawaan <ul> */
+  margin: right;                    /* (Catatan: 'right' bukan nilai margin valid, namun dipertahankan sesuai aslinya) */
 }
 
-.nav-link.active {
-  background: #e3f2fd;
-  color: #4285f4;
+.sidebar-links li {                 /* Class untuk butir daftar <li> di sidebar */
+  margin-bottom: 20px;              /* Jarak antar baris menu ke bawah 20px */
+  font-size: larger;                /* Ukuran teks lebih besar dari standar bawaan */
+  text-align: left;                 /* Meratakan teks ke kiri */
 }
 
-/* Sidebar Section */
-.sidebar-fixed {
-  position: fixed;
-  width: 25%;
-  height: 100%;
-  right: 0px;
-  top: 20px;
-  background: #ffffff;
-  padding: 90px; /* Atas 80px (agar tidak tertutup header), kanan/kiri 25px, bawah 30px */
-  overflow-y: auto;
-  overflow-x: hidden;
+.sidebar-links a {                  /* Class untuk link <a> di dalam sidebar */
+  text-decoration: none;            /* Menghapus garis bawah link */
+  color: #555;                      /* Warna teks abu-abu medium */
+  display: block;                   /* Membuat link mengambil lebar penuh sehingga area klik lebih luas */
+  font-size: 1rem;                  /* Ukuran teks sama dengan standar akar dokumen (biasanya 16px) */
 }
 
-.sidebar-links {
-  list-style: circle;
-  padding: 0;
-  margin: right;
+/* ================= CONTENT SECTIONS ================= */
+.content {                          /* Class untuk area konten utama */
+  padding: 100px 0;                 /* Jarak atas-bawah 100px untuk memberikan ruang napas, kanan-kiri 0 */
 }
 
-.sidebar-links li {
-  margin-bottom: 20px;
-  font-size: larger;
-  text-align: left;
+/* ================= FOOTER ================= */
+.footer {                           /* Class untuk area bawah halaman (catatan kaki) */
+  position: relative;               /* Berada di arus dokumen normal (mengikuti urutan bawah) */
+  background: #333;                 /* Warna latar abu-abu sangat gelap (mendekati hitam) */
+  color: white;                     /* Warna teks putih */
+  text-align: center;               /* Teks dipusatkan di tengah (center) */
+  padding: 20px 0;                  /* Jarak dalam atas-bawah 20px, kanan-kiri 0 */
+  z-index: 1100;                    /* Tumpukan sangat tinggi untuk memastikan menutupi sidebar saat di-scroll ke dasar */
 }
 
-.sidebar-links a {
-  text-decoration: none;
-  color: #555;
-  transition: all 0.3s ease;
-  display: block;
-  font-size: 1rem;
+.footer p {                         /* Class untuk paragraf di dalam footer */
+  font-size: 16px;                  /* Ukuran teks 16px */
+  color: #ccc;                      /* Warna teks abu-abu terang */
 }
 
-/* Hero Section */
-.judul {
-  padding: 120px 0 100px;
-  background: #e8f4fd;
-  display: flex;
-  align-items: center;
-  height: 100vh;
+/* ================= RENTAL FORM ================= */
+.content-form {                     /* Class pembungkus kotak formulir */
+  background-color: #ffffff;        /* Warna latar kotak formulir putih */
+  padding: 40px 50px;               /* Jarak di dalam formulir atas-bawah 40px, kanan-kiri 50px */
+  margin: 0 auto 30px auto;         /* Rata tengah (auto) dengan jarak bawah 30px ke elemen berikutnya */
+  width: 80%;                       /* Lebar kotak formulir 80% dari pembungkusnya */
 }
 
-.judul-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+.headForm {                         /* Class untuk judul formulir */
+  font-size: 22px;                  /* Ukuran huruf 22px */
+  font-weight: 700;                 /* Ketebalan huruf tebal/bold (700) */
+  margin-bottom: 30px;              /* Jarak dari judul ke kolom pertama 30px */
+  text-align: center;               /* Meratakan teks ke tengah */
+  color: #000;                      /* Warna teks hitam legam */
+ }
+
+.input-section {                    /* Class pembungkus antara Label dan Kotak Input */
+  margin-bottom: 20px;              /* Jarak ke isian (input) berikutnya 20px */
+  display: flex;                    /* Menggunakan flexbox untuk tata letak */
+  flex-direction: column;           /* Menyusun elemen flex dari atas ke bawah (kolom) */
+  resize: vertical;                 /* (Catatan: Ada typo kutip ganda  */
 }
 
-.judul .container {
-  display: flex;
-  gap: 80px;
-  align-items: center;
-  height: 100vh;
+.label-section {                    /* Class untuk teks nama kolom (contoh: "Nama", "Email") */
+  font-size: 16px;                  /* Ukuran font teks label 16px */
+  margin-bottom: 8px;               /* Jarak bawah dari teks ke kotak input 8px */
+  color: #333;                      /* Warna teks abu-abu gelap */
 }
 
-.judul-box {
-  width: 50%;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.required-color {                   /* Class untuk tanda bintang wajib isi */
+  color: red;                       /* Memberikan warna merah pada teks (misal lambang *) */
 }
 
-.judul-box h1 {
-  font-size: 48px;
-  margin-bottom: 25px;
-  color: #222;
-  line-height: 1.2;
+.input-box, .selector {             /* Class untuk kotak isian teks dan menu dropdown (select) */
+  width: 100%;                      /* Lebar kotak isian memakan lebar penuh (100%) area induknya */
+  padding: 12px 15px;               /* Ruang dalam pengetikan atas-bawah 12px, kanan-kiri 15px */
+  font-size: 15px;                  /* Ukuran teks yang diketik 15px */
+  border: 1px solid #999;           /* Garis pinggir setebal 1px, solid, warna abu-abu */
+  box-sizing: border-box;           /* Memastikan padding tidak membuat elemen mekar melebihi 100% */
+  font-family: 'Poppins', sans-serif; /* Menyamakan font ketikan dengan font halaman web */
+  outline: none;                    /* Menghilangkan garis biru bawaan browser saat diklik */
 }
 
-.judul-box p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  color: #a09b9b;
+.input-box:focus, .selector:focus { /* Pseudo-class saat kotak sedang aktif/diklik */
+  border-color: #007bff;            /* Mengubah warna garis tepi menjadi biru terang saat mengetik */
 }
 
-.button {
-  display: inline-block;
-  background: #4285f4;
-  color: white;
-  padding: 18px 40px;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
-  transition: all 0.3s;
+.radio-group {                      /* Class untuk pembungkus tombol bulat (radio button) */
+  display: flex;                    /* Menyusun tombol berjejer menyamping */
+  gap: 20px;                        /* Jarak antar opsi pilihan radio 20px */
+  align-items: center;              /* Meratakan tombol dan teks tepat di tengah secara vertikal */
+  margin-top: 5px;                  /* Jarak sedikit ke atas (5px) */
 }
 
-/* Sections */
-.content {
-  padding: 100px 0;
+.radio-group label {                /* Mengatur teks di sebelah tombol radio */
+  font-size: 15px;                  /* Ukuran teks label radio 15px */
+  color: #333;                      /* Warna teks abu-abu gelap */
 }
 
-.content h2 {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 60px;
-  color: #222;
+#submit-button {                    /* ID untuk tombol kirim formulir */
+  width: 100%;                      /* Tombol selebar 100% (penuh) dari ujung ke ujung */
+  padding: 15px;                    /* Area klik/padding tombol 15px menyeluruh */
+  background-color: #ffffff;        /* Latar belakang tombol warna putih */
+  color: #000;                      /* Warna teks di tombol hitam */
+  border: 1px solid #999;           /* Garis pinggir tombol 1px warna abu-abu */
+  font-size: 16px;                  /* Ukuran teks tombol 16px */
+  font-weight: 600;                 /* Ketebalan teks semi-bold (600) */
+  cursor: pointer;                  /* Mengubah ikon kursor mouse menjadi bentuk tangan (klik) */
+  margin-top: 10px;                 /* Jarak ekstra 10px ke atas */
 }
 
-/* Cards - Fixed 3 Columns */
-.cards {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
+.error-message {                    /* Class untuk teks pesan peringatan error */
+  font-size: 13px;                  /* Teks peringatan berukuran kecil (13px) */
+  margin-top: 5px;                  /* Jarak dari input ke pesan error 5px */
+  margin-bottom: 0;                 /* Tidak ada jarak pendorong ke bawah */
 }
 
-.card {
-  flex: 1;
-  max-width: 350px;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition:
-    all 0,
-    3s;
-  border: 1px solid #eee;
+.hide {                             /* Class utilitas untuk menyembunyikan elemen secara instan */
+  display: none;                    /* Perintah wajib agar elemen hilang dan tidak memakan ruang */
 }
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.explain {
-  font-size: larger;
-  text-align: justify;
-}
-
-.explain h2 {
-  text-align: left;
-}
-
-
-.icon {
-  font-size: 60px;
-  margin-bottom: 25px;
-}
-
-.card h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.card p {
-  color: #666;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Footer */
-.footer {
-  position: relative;
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  z-index: 1100;
-}
-
-.footer p {
-  font-size: 16px;
-  color: #ccc;
-}
-/* rental */
-      .content-form {
-        background-color: #ffffff; /* Kotak Form Putih */
-        padding: 40px 50px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Efek bayangan kotak */
-        margin: 0 auto 30px auto;
-        width: 80%;
-      }
-
-      .headForm {
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 30px;
-        text-align: center;
-        color: #000;
-      }
-
-      .input-section {
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column; /* Label di atas, Input di bawah */
-      }
-
-      .label-section {
-        font-size: 16px;
-        margin-bottom: 8px;
-        color: #333;
-      }
-
-      .required-color {
-        color: red; /* Bintang merah */
-      }
-
-      .input-box, .selector {
-        width: 100%;
-        padding: 12px 15px;
-        font-size: 15px;
-        border: 1px solid #999;
-        border-radius: 5px;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-      }
-
-      .input-box:focus, .selector:focus {
-        border-color: #007bff;
-      }
-
-      .radio-group {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        margin-top: 5px;
-      }
-
-      .radio-group label {
-        font-size: 15px;
-        color: #333;
-      }
-
-      #submit-button {
-        width: 100%;
-        padding: 15px;
-        background-color: #ffffff;
-        color: #000;
-        border: 1px solid #999;
-        font-size: 16px;
-        font-weight: 600;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: 0.3s;
-      }
-
-      .error-message {
-        font-size: 13px;
-        margin-top: 5px;
-        margin-bottom: 0;
-      }
-
-      .hide {
-        display: none;
-      }

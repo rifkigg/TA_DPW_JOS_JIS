@@ -34,3 +34,13 @@ sidebar kasih scroll
 
 eval ada error
 about us error
+
+
+ASISTENSI 3
+revisi untuk validasi form tidak boleh di unput spasi
+regex email
+tgl pengembalian ngebug
+kata kunci berupa meta data
+komentar js
+komentar html & css halaman 1 & 2
+

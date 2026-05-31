@@ -41,6 +41,7 @@ let submitButton = document.getElementById("submit-button");
 
 // Event Handler
 submitButton.addEventListener("click", function (event) {
+  // Mencegah form agar tidak otomatis refresh halaman saat tombol diklik
   event.preventDefault();
 
   let isValid = true;
@@ -89,20 +90,8 @@ submitButton.addEventListener("click", function (event) {
     }
   }
 
-  // Fungsi kondisi tidak boleh pilih tanggal sebelum saat ini
-  function setBeforeNow(input, errorMessage) {
-    // Tanggal Hari ini
-    let dateNow = new Date();
-
-    let dateInput = new Date(input.value);
-
-    if (dateInput.getTime() < dateNow) {
-      errorMessage.classList.remove("hide");
-    }
-  }
-
   // Validasi Nama Penyewa
-  if (nameInput.value === "") {
+  if (nameInput.value.trim() === "") {
     emptyNameInput.textContent = "Nama Penyewa tidak boleh kosong";
     setEmptyState(nameInput, emptyNameInput, nameError);
   } else {
@@ -117,11 +106,15 @@ submitButton.addEventListener("click", function (event) {
   }
 
   // Validasi Email
-  if (emailInput.value === "") {
+  if (emailInput.value.trim() === "") {
     emptyEmailInput.textContent = "Email tidak boleh kosong";
     setEmptyState(emailInput, emptyEmailInput, emailError);
   } else {
-    let emailRegex = /^[^\s@]+@(\w+\.)+\w+$/;
+    let emailRegex = /^[a-z0-9]+@[a-z0-9]+\.[a-z]{2,}$/i;
+    // [a-z0-9] => hanya boleh angka 0 sampai 9 dan huruf a sampai z
+    // apabila ada + setelah nya berarti pengecekan di sebelum nya itu tidak hanya satu huruf atau angka saja
+    // /i => berfungsi agar huruf a sampai z itu sama dengan A sampai Z
+    // \. => untuk pengecekan charakter . dalam regex
 
     if (!emailRegex.test(emailInput.value)) {
       emailError.textContent = "Inputan Email tidak valid";
@@ -132,11 +125,11 @@ submitButton.addEventListener("click", function (event) {
   }
 
   // Validasi Nomor Telepon
-  if (phoneInput.value === "") {
+  if (phoneInput.value.trim() === "") {
     emptyPhoneInput.textContent = "Nomor Telepon tidak boleh kosong";
     setEmptyState(phoneInput, emptyPhoneInput, phoneError);
   } else {
-    let phoneRegex = /^[0-9]+$/;
+    let phoneRegex = /^[0-9]+$/; // hanya angka 0 sampai 9
 
     if (!phoneRegex.test(phoneInput.value)) {
       phoneError.textContent = "Nomor Telepon tidak boleh mengandung huruf";
@@ -149,36 +142,50 @@ submitButton.addEventListener("click", function (event) {
     }
   }
 
-  // Validasi Tanggal Peminjaman
+  // ==========================================
+  // VALIDASI TANGGAL PEMINJAMAN & PENGEMBALIAN
+  // ==========================================
+
+  // Ambil tanggal hari ini dalam format YYYY-MM-DD (Sama dengan format input HTML)
+  let hariIni = new Date().toISOString().slice(0, 16);
+  // toISOString() adalah fungsi bawaan (method) di JavaScript yang digunakan untuk mengubah objek tanggal (Date) menjadi sebaris teks (String) dengan format standar internasional yang disebut ISO 8601.
+  // pada code ini berfungsi untuk menyamakan dengan value yang dibarikan oleh input type datetime-local
+
+  // --- VALIDASI TANGGAL PEMINJAMAN ---
+  let isPeminjamanValid = false; 
 
   if (datePeminjaman.value === "") {
     emptyDatePeminjaman.textContent = "Tanggal Peminjaman tidak boleh kosong";
     setEmptyState(datePeminjaman, emptyDatePeminjaman, datePeminjamanError);
+  } else if (datePeminjaman.value < sekarang) {
+    // Jika tanggal & jam yang dipilih sudah lewat dari menit sekarang
+    datePeminjamanError.textContent = "Tanggal Peminjaman tidak boleh sebelum saat ini";
+    setErrorState(datePeminjaman, emptyDatePeminjaman, datePeminjamanError);
   } else {
-    datePeminjamanError.textContent =
-      "Tanggal Peminjaman tidak boleh sebelum saat ini";
-    setBeforeNow(datePeminjaman, datePeminjamanError);
+    setValidState(datePeminjaman, emptyDatePeminjaman, datePeminjamanError);
+    isPeminjamanValid = true; 
   }
 
-  // Validasi Tanggal Pengembalian
+
+  // --- VALIDASI TANGGAL PENGEMBALIAN ---
   if (datePengembalian.value === "") {
-    emptyDatePengembalian.textContent =
-      "Tanggal Pengembalian tidak boleh kosong";
-    setEmptyState(
-      datePengembalian,
-      emptyDatePengembalian,
-      datePengembalianError,
-    );
+    emptyDatePengembalian.textContent = "Tanggal Pengembalian tidak boleh kosong";
+    setEmptyState(datePengembalian, emptyDatePengembalian, datePengembalianError);
+  } else if (datePengembalian.value < sekarang) {
+    // Jika tanggal & jam kembali yang dipilih sudah lewat dari menit sekarang
+    datePengembalianError.textContent = "Tanggal Pengembalian tidak boleh sebelum saat ini";
+    setErrorState(datePengembalian, emptyDatePengembalian, datePengembalianError);
+  } else if (isPeminjamanValid && datePengembalian.value < datePeminjaman.value) {
+    // Jika tanggal & jam kembali ternyata LEBIH DULU daripada tanggal & jam pinjam
+    datePengembalianError.textContent = "Tanggal Pengembalian tidak boleh sebelum Tanggal Peminjaman";
+    setErrorState(datePengembalian, emptyDatePengembalian, datePengembalianError);
   } else {
-    datePengembalianError.textContent =
-      "Tanggal Pengembalian tidak boleh sebelum saat ini";
-    setBeforeNow(datePengembalian, datePengembalianError);
+    setValidState(datePengembalian, emptyDatePengembalian, datePengembalianError);
   }
 
   // Validasi Metode Pembayaran
-  let selectedPayment = document.querySelector(
-    'input[name="pembayaran"]:checked',
-  );
+  // Mengambil value dari input dengan atribut name "pembayaran" yang sudah kepilih atau "checked"
+  let selectedPayment = document.querySelector('input[name="pembayaran"]:checked',); 
 
   if (!selectedPayment) {
     paymentError.textContent = "Metode pembayaran harus dipilih";
@@ -197,67 +204,10 @@ submitButton.addEventListener("click", function (event) {
   }
 
   // Validasi Keperluan Peminjaman
-  if (purposeInput.value === "") {
+  if (purposeInput.value.trim() === "") {
     emptyPurposeInput.textContent = "Keperluan Peminjaman tidak boleh kosong";
     setEmptyState(purposeInput, emptyPurposeInput);
   } else {
     setValidState(purposeInput, emptyPurposeInput);
-  }
-
-  // Hasil Inputan
-  if (isValid) {
-    // Tampilkan card hasil
-    document.getElementById("result-container-card").classList.remove("hide");
-
-    // Buat tabel hasil
-    let resultTable = document.createElement("table");
-    resultTable.classList.add("result-table");
-
-    // Data field
-    let fields = [
-      "Nama Penyewa",
-      "Email",
-      "Nomor Telepon",
-      "Metode Pembayaran",
-      "Pilihan Kamera",
-      "Keperluan Peminjaman",
-    ];
-
-    // Data value
-    let values = [
-      nameInput.value,
-      emailInput.value,
-      phoneInput.value,
-      selectedPayment.value,
-      cameraSelect.options[cameraSelect.selectedIndex].text,
-      purposeInput.value,
-    ];
-
-    // Header tabel
-    let headerRow = resultTable.insertRow(0);
-
-    let cell1 = headerRow.insertCell(0);
-    let cell2 = headerRow.insertCell(1);
-
-    cell1.innerHTML = "<b>Field</b>";
-    cell2.innerHTML = "<b>Hasil</b>";
-
-    // Isi tabel
-    for (let i = 0; i < fields.length; i++) {
-      let row = resultTable.insertRow(i + 1);
-
-      let cell1_1 = row.insertCell(0);
-      let cell2_1 = row.insertCell(1);
-
-      cell1_1.textContent = fields[i];
-      cell2_1.textContent = values[i];
-    }
-
-    // Bersihkan hasil sebelumnya
-    let resultContainer = document.getElementById("result-container");
-    resultContainer.innerHTML = "";
-
-    // Tambahkan tabel hasil
-    resultContainer.appendChild(resultTable);
   }
 });

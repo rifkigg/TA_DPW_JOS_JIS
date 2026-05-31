@@ -1,292 +1,209 @@
-/* Reset Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {                           /* Pemilih universal (*) menargetkan seluruh elemen HTML */
+  margin: 0;                  /* Nilai 0: Menghilangkan seluruh jarak luar elemen */
+  padding: 0;                 /* Nilai 0: Menghilangkan seluruh jarak dalam elemen */
+  box-sizing: border-box;     /* Nilai border-box: Memastikan padding dan border dihitung ke dalam total lebar/tinggi elemen agar layout tidak melar */
 }
 
-html {
-  scroll-behavior: smooth;
+body {                        /* Pemilih tag body menargetkan seluruh isi badan dokumen web */
+  font-family: "Poppins", sans-serif; /* Nilai: Menggunakan font Poppins. Jika gagal dimuat, gunakan font sans-serif bawaan sistem */
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+.wrapper {                    /* Pemilih class .wrapper sebagai pembungkus area konten selain sidebar */
+  width: 75%;                 /* Nilai 75%: Membatasi lebar elemen ini hanya memakan 75% dari layar */
+  margin-top: 70px;           /* Nilai 70px: Memberi jarak dorongan ke bawah sebesar 70px (memberi ruang untuk header) */
 }
 
-.wrapper {
-  width: 75%;
-  margin-top: 70px;
+/*  */
+.container {                  /* Pemilih class .container untuk membatasi rentang lebar konten */
+  width: 100%;                /* Nilai 100%: Mengambil lebar penuh dari elemen induknya */
+  max-width: 1200px;          /* Nilai 1200px: Membatasi maksimal kelebaran elemen di 1200px pada layar besar */
+  margin: 0 auto;             /* Nilai 0 auto: Margin atas-bawah 0, margin kanan-kiri otomatis (membuat elemen posisinya rata tengah di layar) */
+  padding: 0 20px;            /* Nilai 0 20px: Padding atas-bawah 0, kanan-kiri 20px (agar konten tidak menempel ujung layar di HP) */
 }
 
-/* Container - FIXED 1200px */
-.container {
-  width: 100%;
-  max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
-  margin: 0 auto;
-  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
+/* Header dan Menu */
+.headermenu {                 /* Pemilih class .headermenu untuk membungkus area navigasi */
+  background: white;        /* Nilai white: Warna latar belakang putih solid */
+  position: fixed;            /* Nilai fixed: Membuat header melayang dan diam di tempat meski di scroll */
+  width: 100%;                /* Nilai 100%: Lebar header membentang penuh dari ujung ke ujung layar */
+  top: 0;                     /* Nilai 0: Posisinya menempel persis di ujung paling atas layar */
+  z-index: 100;               /* Nilai 100: Memberi urutan tumpukan prioritas ke-100 agar berada di atas elemen lain */
 }
 
-
-/* Header */
-.headermenu {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
+.headermenu .container {      /* Pemilih: Menargetkan .container yang khusus ada di dalam .headermenu */
+  display: flex;              /* Nilai flex: Mengaktifkan tata letak flexbox (menyusun item ke samping) */
+  justify-content: space-between; /* Nilai space-between: Mendorong elemen di dalamnya sejauh mungkin (logo ke kiri mentok, menu ke kanan mentok) */
+  align-items: center;        /* Nilai center: Meratakan posisi elemen secara vertikal di tengah */
+  padding: 20px 40px;         /* Nilai 20px 40px: Jarak dalam vertikal 20px, horizontal 40px */
+  height: 70px;               /* Nilai 70px: Mengunci tinggi pasti untuk area header ini */
 }
 
-.headermenu .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  height: 70px;
+.logo {                       /* Pemilih class .logo untuk teks LensaKita */
+  font-size: 28px;            /* Nilai 28px: Ukuran teks logo */
+  font-weight: 600;           /* Nilai 600: Ketebalan font semi-bold */
+  color: #4285f4;             /* Nilai hex: Mengatur warna teks menjadi biru terang (Google Blue) */
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 600;
-  color: #4285f4;
+.nav {                        /* Pemilih class .nav sebagai pembungkus tautan navigasi */
+  display: flex;              /* Nilai flex: Menyusun menu navigasi berjejer ke samping */
+  gap: 40px;                  /* Nilai 40px: Memberikan jarak celah yang seragam sebesar 40px antar menu */
 }
 
-.nav {
-  display: flex;
-  gap: 40px;
+.nav-link {                   /* Pemilih class .nav-link untuk masing-masing tombol teks menu */
+  text-decoration: none;      /* Nilai none: Menghilangkan garis bawah standar pada link (tag a) */
+  color: #666;              /* Nilai hex: Warna teks abu-abu gelap */
+  font-weight: 500;           /* Nilai 500: Ketebalan font medium */
+  padding: 12px 20px;         /* Nilai 12px 20px: Memberi ruang klik tombol (12px vertikal, 20px horizontal) */
+  border-radius: 25px;        /* Nilai 25px: Membuat sudut tepi tombol melengkung/membulat */
+  font-size: 16px;            /* Nilai 16px: Ukuran standar teks menu */
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #666;
-  font-weight: 500;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 16px;
+.nav-link.active {            /* Pemilih class: Menargetkan elemen yang punya .nav-link DAN .active bersamaan */
+  background: #e3f2fd;      /* Nilai hex: Latar belakang biru sangat muda untuk menu yang sedang dikunjungi */
+  color: #4285f4;           /* Nilai hex: Warna teks berubah menjadi biru khas agar kontras */
 }
 
-.nav-link.active {
-  background: #e3f2fd;
-  color: #4285f4;
+.judul {                      /* Pemilih class .judul untuk spanduk halaman depan */
+  background: #e8f4fd;      /* Nilai hex: Warna latar biru keputihan (ice blue) */
+  display: flex;              /* Nilai flex: Membolehkan pengaturan tata letak di dalamnya */
+  align-items: center;        /* Nilai center: Konten berada di tengah vertikal */
+  justify-content: center;    /* Nilai center: Konten berada di tengah horizontal */
+  min-height: calc(100vh - 70px); /* Nilai calc: Memaksa area ini minimal setinggi layar utuh (100vh) dikurangi tinggi header (70px) */
+  padding: 40px 0;            /* Nilai 40px 0: Jarak tambahan atas-bawah 40px, kanan-kiri 0 */
 }
 
-/* section judul */
-.judul {
-  background: #e8f4fd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 70px); /* Menghitung tinggi layar dikurangi tinggi header fixed */
-  padding: 40px 0;
+.judul .container {           /* Pemilih khusus .container di dalam bagian judul */
+  display: flex;              /* Nilai flex: Berjejer samping untuk teks dan gambar */
+  gap: 40px;                  /* Nilai 40px: Jarak celah antara teks kiri dan gambar kanan */
+  align-items: center;        /* Nilai center: Disejajarkan ke tengah vertikal */
+  justify-content: center;    /* Nilai center: Disejajarkan ke tengah horizontal */
+  height: auto;               /* Nilai auto: Tingginya mengikuti seberapa banyak isi elemennya */
 }
 
-.judul .container {
-  display: flex;
-  gap: 40px;               /* Jarak seimbang antara kotak teks dan gambar */
-  align-items: center;
-  justify-content: center; /* KUNCI UTAMA: Membuat teks & gambar berada persis di tengah */
-  height: auto;            /* Menghapus 100vh lama yang merusak layout */
+.judul-box {                  /* Pemilih class untuk kotak penampung teks H1 dan Paragraf */
+  width: 48%;                 /* Nilai 48%: Mengambil hampir setengah dari lebar induknya (menyisakan ruang untuk gambar) */
+  padding: 40px;              /* Nilai 40px: Jarak di dalam tepi kotak */
+  background: white;        /* Nilai white: Kotak berwarna putih bersih */
+  border-radius: 20px;        /* Nilai 20px: Ujung kotak melengkung */
 }
 
-.judul-box {
-  width: 48%;              /* Membagi porsi ruang secara adil */
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.judul-box h1 {               /* Pemilih judul H1 di dalam judul-box */
+  font-size: 34px;            /* Nilai 34px: Ukuran font judul utama */
+  margin-bottom: 25px;        /* Nilai 25px: Jarak pendorong ke teks di bawahnya */
+  color: #222;              /* Nilai hex: Warna teks hitam lembut (dark charcoal) */
+  line-height: 1.3;           /* Nilai 1.3: Jarak spasi antar baris kalimat (1.3 kali lipat ukuran font) */
 }
 
-.judul-box h1 {
-  font-size: 34px;         /* Diperkecil sedikit agar proporsional di layar laptop */
-  margin-bottom: 25px;
-  color: #222;
-  line-height: 1.3;
-}
-
-.judul-box p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #a09b9b;
+.judul-box p {                /* Pemilih paragraf di dalam judul-box */
+  font-size: 18px;            /* Nilai 18px: Ukuran teks deskripsi */
+  margin-bottom: 40px;        /* Nilai 40px: Jarak dorongan cukup jauh ke tombol di bawahnya */
+  color: #a09b9b;           /* Nilai hex: Warna teks abu-abu terang */
 }
 
 /* Pembungkus Gambar */
-.judul-image {
-  width: 48%;              /* Seimbang dengan lebar judul-box */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.judul-image {                /* Pemilih class untuk kontainer gambar hero */
+  width: 48%;                 /* Nilai 48%: Mengambil lebar seimbang dengan kotak teks */
+  display: flex;              /* Nilai flex: Untuk mempermudah penempatan gambar */
+  justify-content: center;    /* Nilai center: Gambar rata tengah mendatar dalam areanya */
+  align-items: center;        /* Nilai center: Gambar rata tengah vertikal dalam areanya */
 }
 
-.judul-image img {
-  width: 100%;
-  max-width: 450px;        
-  height: auto;            
-  object-fit: cover;
-  border-radius: 20px;
+.judul-image img {            /* Pemilih menargetkan file gambar fisik di dalam judul-image */
+  width: 100%;                /* Nilai 100%: Gambar bisa membesar hingga memakan full lebar induknya */
+  max-width: 450px;           /* Nilai 450px: Gambar tidak boleh lebih lebar dari 450px meski layar sangat besar */
+  height: auto;               /* Nilai auto: Tinggi otomatis menyesuaikan agar aspek rasio tidak peyang */
+  object-fit: cover;          /* Nilai cover: Memastikan gambar mengisi ruang tanpa terdistorsi (dipotong rapi jika beda dimensi) */
+  border-radius: 20px;        /* Nilai 20px: Ujung gambar dilengkungkan selaras dengan kotak teks */
 }
 
 /* Tombol */
-.button {
-  display: inline-block;
-  background: #4285f4;
-  color: white;
-  padding: 14px 30px;      /* Diperkecil sedikit ukurannya agar lebih estetik */
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 16px;
-  box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
-  transition: all 0.3s;
-  margin-right: 10px;      /* Memberi jarak antar tombol agar tidak menempel */
-  margin-bottom: 10px;     /* Jarak aman jika tombol terpaksa turun di layar kecil */
+.button {                     /* Pemilih class .button (seperti "Mulai Belajar" & "Price List") */
+  display: inline-block;      /* Nilai inline-block: Tombol berjejer samping tapi sifat margin/paddingnya tidak menabrak batas baris */
+  background: #4285f4;      /* Nilai hex: Warna background tombol biru Google */
+  color: white;             /* Nilai white: Warna teks tombol putih */
+  padding: 14px 30px;         /* Nilai 14px 30px: Area klik vertikal 14px, horizontal 30px */
+  text-decoration: none;      /* Nilai none: Menghilangkan garis bawah pada tautan link */
+  border-radius: 30px;        /* Nilai 30px: Membulatkan ujung tombol secara ekstrem (efek kapsul/pil) */
+  font-weight: 600;           /* Nilai 600: Ketebalan teks semi-bold */
+  font-size: 16px;            /* Nilai 16px: Ukuran teks tombol standar */
+  margin-right: 10px;         /* Nilai 10px: Mendorong tombol/elemen lain di sebelah kanannya sejauh 10px */
+  margin-bottom: 10px;        /* Nilai 10px: Mendorong tombol/elemen lain di bawahnya jika tombol patah baris */
 }
 
-/* Sidebar Section */
-.sidebar-fixed {
-  position: fixed;
-  width: 25%;
-  height: 100%;
-  right: 0px;
-  top: 20px;
-  background: #ffffff;
-  padding: 90px; /* Atas 80px (agar tidak tertutup header), kanan/kiri 25px, bawah 30px */
-  overflow-y: auto;
-  overflow-x: hidden;
+
+.sidebar-fixed {              /* Pemilih class sidebar */
+  position: fixed;            /* Nilai fixed: Sidebar melayang menempel dan ikut turun saat di-scroll */
+  width: 25%;                 /* Nilai 25%: Sidebar mencaplok 25% area layar di kanan */
+  height: 100%;               /* Nilai 100%: Sidebar memanjang setinggi penuh layar */
+  right: 0px;                 /* Nilai 0px: Menempel rapat di pinggir kanan layar */
+  top: 20px;                  /* Nilai 20px: Berjarak 20px dari atap layar */
+  background: #ffffff;      /* Nilai hex: Background warna putih */
+  padding: 90px;              /* Nilai 90px: Padding besar di semua sisi, utamanya agar teks tidak terhalang header 70px */
 }
 
-.sidebar-links {
-  list-style: circle;
-  padding: 0;
-  margin: right;
+.sidebar-links {              /* Pemilih kontainer unordered list (ul) di sidebar */
+  list-style: circle;         /* Nilai circle: Bentuk peluru poin list (bullet) berupa lingkaran putih/kosong tengah */
+  padding: 0;                 /* Nilai 0: Menghapus padding bawaan ul */
+  margin: o;                  /* ! ERROR/TYPO: Huruf 'o' bukan nilai yang valid. Seharusnya angka 0 (nol) */
 }
 
-.sidebar-links li {
-  margin-bottom: 20px;
-  font-size: larger;
-  text-align: left;
+.sidebar-links li {           /* Pemilih item list (li) individu dalam sidebar */
+  margin-bottom: 20px;        /* Nilai 20px: Jarak ke bawah antar baris menu sidebar */
+  font-size: larger;          /* Nilai larger: Ukuran font diperbesar relatif terhadap font standarnya */
+  text-align: left;           /* Nilai left: Teks dipaksa rata kiri */
 }
 
-.sidebar-links a {
-  text-decoration: none;
-  color: #555;
-  transition: all 0.3s ease;
-  display: block;
-  font-size: 1rem;
+.sidebar-links a {            /* Pemilih link (a) di dalam sidebar */
+  text-decoration: none;      /* Nilai none: Hapus garis bawah link */
+  color: #555;              /* Nilai hex: Teks abu-abu netral */
+  display: block;             /* Nilai block: Membuat area klik selebar listnya, tidak hanya sebatas teksnya saja */
+  font-size: 1rem;            /* Nilai 1rem: Ukuran font seukuran root utama (biasanya 16px di browser) */
 }
 
-/* Content Sections  */
-.content {
-  padding: 100px 0;
-}
 
-.content h2 {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 60px;
-  color: #222;
-}
-
-/* Cards - Fixed 3 Columns */
-.cards {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-}
-
-.explain {
-  text-align: justify;
-}
-
-.explain p {
-    text-align: justify;
-}
-
-.explain h2 {
-  text-align: left;
-}
-.explain h3 {
-  font-size: larger;
-}
-
-.card {
-  flex: 1;
-  max-width: 350px;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0,3s;
-  border: 1px solid #eee;
-}
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.harga-sewa {
-    padding: 40px 20px;
-}
-
-.harga-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.harga-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
+.content {                    /* Pemilih class .content penampung artikel */
+  padding: 200px 0;           /* Nilai 200px 0: Jarak vertikal atas dan bawah yang sangat lebar (200px) antar section */
 } 
 
-.harga-card h3 {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #222;
+/* mengatur ukuran dan penempatan */
+.content h2 {                 /* Pemilih judul utama H2 di dalam konten */
+  text-align: center;         /* Nilai center: Judul dipusatkan di tengah layar */
+  font-size: 30px;            /* Nilai 30px: Ukuran besar untuk membedakan judul antar bab */
+  margin-bottom: 60px;        /* Nilai 60px: Jarak dari judul H2 ke paragraf di bawahnya */
+  color: #222;              /* Nilai hex: Warna teks gelap mendekati hitam */
 }
 
-.harga-card ul {
-    list-style: none;
-    padding: 0;
+.explain {                    /* Pemilih class untuk area paragraf penjelasan */
+  text-align: justify;        /* Nilai justify: Membuat paragraf memanjang rata dan rapi di sisi kiri dan kanan (seperti koran) */
 }
 
-.harga-card ul li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #f5f5f5;
-    border-radius: 8px;
+.explain p {                  /* Pemilih menargetkan spesifik tag paragraf */
+  text-align: justify;        /* Nilai justify: Penegasan teks rata kanan-kiri */
 }
 
-
-.icon {
-  font-size: 60px;
-  margin-bottom: 25px;
+.explain h2 {                 /* Pemilih judul H2 khusus jika ada di dalam class explain */
+  text-align: left;           /* Nilai left: Menimpa style 'center' sebelumnya, H2 di sini dipaksa rata kiri */
+}
+.explain h3 {                 /* Pemilih anak judul H3 di dalam artikel */
+  font-size: larger;          /* Nilai larger: Ukuran sub-judul lebih besar dari teks paragraf */
 }
 
-.card h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #222;
+.harga-grid {                 /* Pemilih container grid produk sewa */
+  display: grid;              /* Nilai grid: Mengaktifkan tata letak grid dua dimensi (baris dan kolom) */
+  grid-template-columns: repeat(3, 1fr); /* Nilai repeat(3, 1fr): Memecah kontainer menjadi 3 kolom berukuran sama (1 fraction) */
+  gap: 25px;                  /* Nilai 25px: Jarak celah horizontal dan vertikal antar kartu produk 25px */
 }
 
-
-/* Footer */
-.footer {
-  position: relative;
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  z-index: 1100;
+.footer {                     /* Pemilih kontainer footer paling bawah */
+  position: relative;         /* Nilai relative: Posisinya natural berada di dasar setelah elemen lain selesai */
+  background: #333;         /* Nilai hex: Warna background abu-abu gelap sangat pekat */
+  color: white;             /* Nilai white: Warna font dasar menjadi putih */
+  text-align: center;         /* Nilai center: Menyelaraskan teks di tengah */
+  padding: 20px 0;            /* Nilai 20px 0: Padding atas-bawah 20px, kanan-kiri 0 */
+  z-index: 1100;              /* Nilai 1100: Tumpukan ekstrem tertinggi untuk menimpa elemen z-index lain (misal menutupi .sidebar-fixed) saat di dasar */
 }
 
-.footer p {
-  font-size: 16px;
-  color: #ccc;
+.footer p {                   /* Pemilih teks paragraf copyright */
+  font-size: 16px;            /* Nilai 16px: Ukuran teks normal */
+  color: #ccc;              /* Nilai hex: Teks abu-abu terang (terlihat kontras dengan background #333) */
 }
-

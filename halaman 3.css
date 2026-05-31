@@ -1,228 +1,158 @@
-/* Reset Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ================= RESET DASAR ================= */
+* {                                 /* Menargetkan semua elemen (*) */
+  margin: 0;                        /* Jarak luar elemen diatur ke 0 */
+  padding: 0;                       /* Jarak dalam elemen diatur ke 0 */
+  box-sizing: border-box;           /* Memasukkan padding dan border ke dalam ukuran asli elemen */
 }
 
-html {
-  scroll-behavior: smooth;
+body {                              /* Menargetkan tag <body> */
+  font-family: "Poppins", sans-serif; /* Mengatur font Poppins, opsi cadangan sans-serif */
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+/* ================= WRAPPER ================= */
+.wrapper {                          /* Class pembungkus konten dokumen */
+  width: 75%;                       /* Membatasi luas pembungkus menjadi 75% area browser */
+  margin-top: 70px;                 /* Jarak dari atas sejauh 70px */
 }
 
-.wrapper {
-  width: 75%;
-  margin-top: 70px;
+/* ================= CONTAINER ================= */
+.container {                        /* Class penahan batas lebar layout web */
+  width: 100%;                      /* Bersifat responsif 100% pada layar kecil */
+  max-width: 1200px;                /* Mengunci lebar maksimum mentok di 1200px */
+  margin: 0 auto;                   /* Memusatkan wadah di tengah (auto) */
+  padding: 0 20px;                  /* Bantalan/padding dalam kanan-kiri 20px */
 }
 
-/* Container - FIXED 1200px */
-.container {
-  width: 100%;
-  max-width: 1200px; /* Mengunci lebar di layar besar (seperti 16 inch Anda) */
-  margin: 0 auto;
-  padding: 0 20px;    /* Memberikan ruang aman di layar kecil agar tidak mentok ke tepi */
+/* ================= HEADER ================= */
+.headermenu {                       /* Class kotak navigasi atas */
+  background: white;                /* Latar warna putih */
+  position: fixed;                  /* Tetap di tempat tidak peduli layar di-scroll */
+  width: 100%;                      /* Terbentang luas 100% dari kiri ke kanan */
+  top: 0;                           /* Mengunci posisi agar menempel di batas atap paling atas */
+  z-index: 100;                     /* Posisi layer (lapisan tumpukan) ke-100 agar di paling depan */
 }
 
-.light-bg {
-  background-color: #d6e4ec;
-  padding: 60px 20px; /* Jarak atas-bawah 60px, kiri-kanan 20px */
+.headermenu .container {            /* Spesifik container yang bersarang di header */
+  display: flex;                    /* Mengaktifkan flexbox (menyusun horizontal) */
+  justify-content: space-between;   /* Mendorong isi menjauh ke kiri (logo) dan kanan (menu) */
+  align-items: center;              /* Memusatkan komponen secara vertikal di tengah garis */
+  padding: 20px 40px;               /* Padding atas-bawah 20px, kanan-kiri 40px */
+  height: 70px;                     /* Menetapkan tinggi absolut header setinggi 70px */
 }
 
-/* Header */
-/* Header */
-.headermenu {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
+.logo {                             /* Menargetkan nama logo/brand */
+  font-size: 28px;                  /* Huruf sebesar 28px */
+  font-weight: 600;                 /* Ketebalan semi-bold */
+  color: #4285f4;                   /* Diwarnai dengan warna biru terang */
 }
 
-.headermenu .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  height: 70px;
+.nav {                              /* Pembungkus menu tautan */
+  display: flex;                    /* Disusun horizontal dengan flexbox */
+  gap: 40px;                        /* Diberi jarak lowong 40px antar masing-masing menu */
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 600;
-  color: #4285f4;
+.nav-link {                         /* Desain teks masing-masing menu */
+  text-decoration: none;            /* Menghilangkan underline/garis bawah bawaan */
+  color: #666;                      /* Teks berwarna abu-abu */
+  font-weight: 500;                 /* Ketebalan medium (500) */
+  padding: 12px 20px;               /* Ruang dalam atas-bawah 12px, kanan-kiri 20px */
+  border-radius: 25px;              /* Memberi lengkungan ujung (oval) sebesar 25px */
+  font-size: 16px;                  /* Font diperbesar ke standar 16px */
 }
 
-.nav {
-  display: flex;
-  gap: 40px;
+.nav-link.active {                  /* Desain untuk menu dari halaman yang aktif/terbuka */
+  background: #e3f2fd;              /* Memberi sorotan latar biru pucat/muda */
+  color: #4285f4;                   /* Mengubah teks menjadi biru terang Google */
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #666;
-  font-weight: 500;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 16px;
+/* ================= SIDEBAR ================= */
+.sidebar-fixed {                    /* Class sidebar (daftar samping) */
+  position: fixed;                  /* Tetap di tempat saat pengguna scroll turun */
+  width: 25%;                       /* Memakan proporsi layar sebanyak 25% */
+  height: 100%;                     /* Ketinggiannya membentang 100% sampai bawah */
+  right: 0px;                       /* Mengunci dan merapatkan posisi di tepi kanan 0px */
+  top: 20px;                        /* Diturunkan 20px dari langit-langit layar */
+  background: #ffffff;              /* Diberi warna latar putih pekat */
+  padding: 90px;                    /* Padding luas 90px untuk menghindari bentrok dengan header */
+  overflow-y: auto;                 /* Mengizinkan scroll turun-naik jika list terlalu banyak */
+  overflow-x: hidden;               /* Menghilangkan bar scroll pinggir/horizontal */
 }
 
-.nav-link.active {
-  background: #e3f2fd;
-  color: #4285f4;
+.sidebar-links {                    /* Menargetkan struktur list (<ul>) */
+  list-style: circle;               /* Bentuk simbol bullet menjadi lingkaran (circle) */
+  padding: 0;                       /* Padding kiri list direset ke 0 */
+  margin: 0;                        /* Margin luar direset ke 0 */
 }
 
-/* Sidebar Section */
-.sidebar-fixed {
-  position: fixed;
-  width: 25%;
-  height: 100%;
-  right: 0px;
-  top: 20px;
-  background: #ffffff;
-  padding: 90px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.sidebar-links li {                 /* Menargetkan butir (<li>) di dalam list */
+  margin-bottom: 20px;              /* Setiap butir memiliki jarak dorong bawah 20px */
+  font-size: larger;                /* Ukuran teks lebih besar satu tingkat */
+  text-align: left;                 /* Meratakan teks ke arah kiri normal */
 }
 
-.sidebar-links {
-  list-style: circle;
-  padding: 0;
-  margin: right;
+.sidebar-links a {                  /* Menargetkan tombol/link (<a>) */
+  text-decoration: none;            /* Menghapus garis bawah */
+  color: #555;                      /* Warna abu-abu medium-gelap */
+  transition: all 0.3s ease;        /* Transisi warna dan properti halus berdurasi 0.3s */
+  display: block;                   /* Mengubah elemen menjadi kotak penuh (block) */
+  font-size: 1rem;                  /* Mengatur ukuran setara 1 root em (biasanya 16px) */
 }
 
-.sidebar-links li {
-  margin-bottom: 20px;
-  font-size: medium;
-  text-align: left;
+/* ================= CONTENT ================= */
+.content {                          /* Area penulisan artikel evaluasi */
+  padding: 100px 0;                 /* Jarak margin dalam atas-bawah 100px (0 kanan-kiri) */
 }
 
-.sidebar-links a {
-  text-decoration: none;
-  color: #555;
-  transition: all 0.3s ease;
-  display: block;
-  font-size: 1rem;
+/* ================= FOOTER ================= */
+.footer {                           /* Kotak footer web */
+  position: relative;               /* Bersifat adaptif pada arus halaman bawah (relative) */
+  background: #333;                 /* Warna latar sangat gelap */
+  color: white;                     /* Warna tulisan putih agar kontras */
+  text-align: center;               /* Keseluruhan teks rata tengah */
+  padding: 20px 0;                  /* Jarak bernapas bagian bawah (atas-bawah 20px) */
+  z-index: 1100;                    /* Lapisan atas 1100 untuk menimpa elemen di atasnya bila berpotongan */
 }
 
-
-/* Sections */
-.content {
-  padding: 100px 0;
+.footer p {                         /* Teks paragraf copyright dalam footer */
+  font-size: 16px;                  /* Font diset ke 16px */
+  color: #ccc;                      /* Warna abu-abu pudar */
 }
 
-.content h2 {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 60px;
-  color: #222;
+/* ================= CONTENT EVALUASI ================= */
+div.content-evaluasi {              /* Selektor pembungkus kertas Evaluasi */
+  background-color: #ffffff;        /* Berlatar belakang putih penuh */
+  margin: 0 50px 0;                 /* Margin atas 0, margin kanan 50px, margin bawah 0 */
+  width: 200%;                      /* Lebar dibuat paksa ganda 200% (tergantung limit max-width) */
+  max-width: 870px;                 /* Namun dikunci ketat maksimal tak lebih dari 870px */
+  padding: 32px 24px;               /* Padding area dalam kertas 32px (vertikal), 24px (horizontal) */
 }
 
-/* Cards - Fixed 3 Columns */
-.cards {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
+div.content-evaluasi h1 {           /* Judul tajuk 1 evaluasi */
+  font-weight: bold;                /* Cetak tebal / bold */
+  font-size: 50px;                  /* Ukuran font sangat besar 50px */
+  margin-bottom: 50px;              /* Jarak dari judul ke teks/tabel di bawahnya 50px */
 }
 
-.card {
-  flex: 1;
-  max-width: 350px;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition:
-    all 0,
-    3s;
-  border: 1px solid #eee;
+/* ================= TABLE ================= */
+div.content-evaluasi table {        /* Selector format Tabel di dalam class evaluasi */
+  width: 100%;                      /* Tabel memakan seluruh lebar layar container (100%) */
+  border-collapse: collapse;        /* Menyatukan double border sel tabel menjadi border tunggal/rata */
+  margin-top: 20px;                 /* Memberi jarak atas sebesar 20px */
+  padding: 20px;                    /* Padding internal tabel 20px */
 }
 
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+div.content-evaluasi th,            
+td {                                /* Selector sel header (th) dan sel data (td) pada tabel */
+  border: 3px solid #000000;        /* Menggambar garis tepi ketat 3px, solid, berwarna hitam pekat */
+  padding: 10px;                    /* Ruang teks di setiap sel (kamar) tabel sebesar 10px */
 }
 
-.explain {
-  font-size: larger;
-  text-align: justify;
+div.content-evaluasi th {           /* Khusus menargetkan baris Kepala/Header (th) saja */
+  background-color: #b4b4b3;        /* Memberi warna abu-abu pada kotak kepala tabel */
+  text-align: center;               /* Memaksa teks header berada persis di tengah */
 }
 
-.explain h2 {
-  text-align: left;
-}
-
-.card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.icon {
-  font-size: 60px;
-  margin-bottom: 25px;
-}
-
-.card h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.card p {
-  color: #666;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Footer */
-.footer {
-  position: relative;
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  z-index: 1100;
-}
-
-.footer p {
-  font-size: 16px;
-  color: #ccc;
-}
-
-/* Section Content Evaluasi */
-/* Untuk mengatur container eval */
-div.content-eval {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-  padding: 50px;
-}
-/* Untuk mengatur h1 */
-div.content-eval h1 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 34px;
-  margin-bottom: 50px;
-}
-/* Untuk mengatur table */
-div.content-eval table {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid orange;
-  text-align: center;
-  margin-bottom: 20px;
-}
-/* Untuk mengatur th td table */
-div.content-eval th,
-td {
-  border: 5px solid #000000;
-  padding: 10px;
-}
-/* Untuk mengatur th table */
-div.content-eval th {
-  background-color: #b4b4b3;
+/* ================= ORDERED LIST ================= */
+ol {                                /* Selector Ordered List (List bertipe Angka 1, 2, 3...) */
+  margin: 20px;                     /* Memberikan jarak terluar ke seluruh sisi sebanyak 20px */
 }

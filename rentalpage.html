@@ -30,153 +30,70 @@
             <h4 class="headForm">FORM PENYEWAAN KAMERA DIGITAL</h4>
 
             <div class="input-section">
-              <label class="label-section"
-                >Nama Penyewa<span class="required-color">*</span></label
-              >
-              <input
-                class="input-box"
-                type="text"
-                placeholder="Masukkan Nama Lengkap"
-                id="name-input"
-              />
+              <label class="label-section">Nama Penyewa<span class="required-color">*</span></label>
+              <input class="input-box" type="text" placeholder="Masukkan Nama Lengkap" id="name-input"/>
               <p id="name-error" class="hide required-color error-message"></p>
               <p id="empty-name" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Email Penyewa<span class="required-color">*</span></label
-              >
-              <input
-                class="input-box"
-                type="text"
-                placeholder="Masukkan Email"
-                id="email-input"
-              />
+              <label class="label-section">Email Penyewa<span class="required-color">*</span></label>
+              <input class="input-box" type="text" placeholder="Masukkan Email" id="email-input"/>
               <p id="email-error" class="hide required-color error-message"></p>
               <p id="empty-email" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Nomor Telepon<span class="required-color">*</span></label
-              >
-              <input
-                class="input-box"
-                type="text"
-                placeholder="Masukkan Nomor Telepon/WA"
-                id="phone-input"
-              />
+              <label class="label-section">Nomor Telepon<span class="required-color">*</span></label>
+              <input class="input-box" type="text" placeholder="Masukkan Nomor Telepon/WA" id="phone-input"/>
               <p id="phone-error" class="hide required-color error-message"></p>
               <p id="empty-phone" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Tanggal Peminjaman<span class="required-color">*</span></label
-              >
-              <input
-                class="input-box"
-                type="datetime-local"
-                placeholder="Masukkan Tanggal Peminjaman"
-                id="date-peminjaman"
-              />
-              <p
-                id="date-peminjaman-error"
-                class="hide required-color error-message"
-              ></p>
-              <p
-                id="empty-date-peminjaman"
-                class="hide required-color error-message"
-              ></p>
+              <label class="label-section">Tanggal Peminjaman<span class="required-color">*</span></label>
+              <input class="input-box" type="datetime-local" placeholder="Masukkan Tanggal Peminjaman" id="date-peminjaman"/>
+              <p id="date-peminjaman-error" class="hide required-color error-message"></p>
+              <p id="empty-date-peminjaman" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Tanggal Pengembalian<span class="required-color"
-                  >*</span
-                ></label
-              >
-              <input
-                class="input-box"
-                type="datetime-local"
-                placeholder="Masukkan Tanggal Pengembalian"
-                id="date-pengembalian"
-              />
-              <p
-                id="date-pengembalian-error"
-                class="hide required-color error-message"
-              ></p>
-              <p
-                id="empty-date-pengembalian"
-                class="hide required-color error-message"
-              ></p>
+              <label class="label-section">Tanggal Pengembalian<span class="required-color">*</span></label>
+              <input class="input-box" type="datetime-local" placeholder="Masukkan Tanggal Pengembalian" id="date-pengembalian"/>
+              <p id="date-pengembalian-error" class="hide required-color error-message"></p>
+              <p id="empty-date-pengembalian" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Metode Pembayaran<span class="required-color">*</span></label
-              >
+              <label class="label-section">Metode Pembayaran<span class="required-color">*</span></label>
               <div class="radio-group">
                 <input type="radio" id="cash" name="pembayaran" value="Cash" />
                 <label for="cash">Cash</label>
-                <input
-                  type="radio"
-                  id="debit"
-                  name="pembayaran"
-                  value="Debit"
-                />
+                <input type="radio" id="debit" name="pembayaran" value="Debit"/>
                 <label for="debit">Debit</label>
                 <input type="radio" id="bank" name="pembayaran" value="bank" />
                 <label for="bank">Bank</label>
               </div>
-              <p id="payment-error" class="hide required-color error-message">
-                Metode pembayaran harus dipilih.
-              </p>
+              <p id="payment-error" class="hide required-color error-message">Metode pembayaran harus dipilih.</p>
             </div>
 
             <div class="input-section">
-              <label for="camera-select" class="label-section"
-                >Pilihan Kamera<span class="required-color">*</span></label
-              >
+              <label for="camera-select" class="label-section">Pilihan Kamera<span class="required-color">*</span></label>
               <select id="camera-select" class="selector">
-                <option value="" disabled selected hidden>
-                  Pilih Kamera yang Tersedia
-                </option>
                 <option value="Canon EOS 6D">Canon EOS 6D (DSLR)</option>
-                <option value="Canon EOS M50">
-                  Canon EOS M50 (Mirrorless)
-                </option>
+                <option value="Canon EOS M50">Canon EOS M50 (Mirrorless)</option>
                 <option value="Canon 700D">Canon 700D (DSLR)</option>
-                <option value="Canon EOS R100">
-                  Canon EOS R100 (Mirrorless)
-                </option>
+                <option value="Canon EOS R100">Canon EOS R100 (Mirrorless)</option>
                 <option value="Canon EOS 60D">Canon EOS 60D (DSLR)</option>
                 <option value="Canon EOS 600D">Canon EOS 600D (DSLR)</option>
               </select>
-              <p
-                id="empty-camera"
-                class="hide required-color error-message"
-              ></p>
+              <p id="empty-camera" class="hide required-color error-message"></p>
             </div>
 
             <div class="input-section">
-              <label class="label-section"
-                >Keperluan Peminjaman<span class="required-color"
-                  >*</span
-                ></label
-              >
-              <textarea
-                class="input-box"
-                placeholder="Misal: Dokumentasi Wedding, Tugas Kuliah, dll"
-                id="purpose-input"
-                rows="4"
-                style="resize: vertical"
-              ></textarea>
-              <p
-                id="empty-purpose"
-                class="hide required-color error-message"
-              ></p>
+              <label class="label-section">Keperluan Peminjaman<span class="required-color">*</span></label>
+              <textarea class="input-box" placeholder="Misal: Dokumentasi Wedding, Tugas Kuliah, dll" id="purpose-input" rows="4"></textarea>
+              <p id="empty-purpose" class="hide required-color error-message"></p>
             </div>
 
             <button id="submit-button" type="submit">Sewa Sekarang</button>
@@ -187,7 +104,7 @@
           <div id="result-container"></div>
         </div>
       </div>
-
+      
       <div class="sidebar-fixed">
         <ul class="sidebar-links">
           <li><a href="index.html#penjelasan1">DSLR vs Mirrorless</a></li>
@@ -203,9 +120,9 @@
         </ul>
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
+    
+      <!-- Footer -->
+      <footer class="footer">
       <div class="container">
         <p>© 2026 Kelompok 5 DPW.</p>
       </div>
